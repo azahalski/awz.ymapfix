@@ -110,7 +110,7 @@ $tabControl->Begin();
         $tabControl->BeginNextTab();
         ?>
         <?
-        $currentSite = $request->get('SITE_ID') ? str_replace($saveUrl.'&SITE_ID=','',$request->get('SITE_ID')) : current($siteRes)['LID'];
+        $currentSite = $request->get('SITE_ID') ? str_replace($saveUrl.'&SITE_ID=','',htmlspecialcharsEx($request->get('SITE_ID'))) : current($siteRes)['LID'];
         ?>
         <tr>
             <td>
