@@ -1,69 +1,66 @@
-[size=24pt][b]Назначение[/b][/size]
+[center][size=18pt][b]AWZ: Решение конфликтов Яндекс карт[/b][/size]
+[IMG WIDTH=225 HEIGHT=9]https://zahalski.dev/upload/awz.load.ai/lv1iyow5dj.png[/IMG][/center]
+[center]
+[TABLE][TR][TH][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=150 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/5bgfxic7b1.png[/IMG][/TH][TH][b]Все подключения к api-maps.yandex.ru заменяются на один заданный URL - дубли и конфликты ключей исчезают.[/b][/TH][TH][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=150 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/5bgfxic7b1.png[/IMG][/TH][/TR][TR][TH][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][/TH][/TR][TR][TH][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=150 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/5bgfxic7b1.png[/IMG][/TH][TH][color=#8b93b3]Работает с awz.ydelivery, awz.belpost, awz.europost, другими модулями - ключи подтягиваются автоматически.[/color][/TH][TH][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=150 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/5bgfxic7b1.png[/IMG][/TH][/TR][/TABLE][/center]
+[center]
+[TABLE][TR][TH][center][IMG WIDTH=72 HEIGHT=72]https://zahalski.dev/upload/awz.load.ai/tq8r10rl97.png[/IMG][/center]
 
-Модуль автоматически заменяет подключения к API Яндекс карт на заданный URL, обеспечивая единый и корректный способ подключения библиотеки [b]ymaps[/b]. Это особенно полезно в ситуациях, когда несколько модулей (например, [b]awz.ydelivery[/b], [b]awz.belpost[/b], [b]awz.europost[/b]) подключают карты с разными ключами и версиями, что приводит к конфликтам и ошибкам.
+[center][b]Единый URL[/b][/center][color=#8b93b3]все подключения к api-maps.yandex.ru заменяются на один адрес.[/color][/TH][TH][center][IMG WIDTH=10 HEIGHT=20]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][/center][/TH][TH][center][IMG WIDTH=72 HEIGHT=72]https://zahalski.dev/upload/awz.load.ai/uxdaszdw23.png[/IMG][/center]
 
-[size=24pt][b]Основные возможности[/b][/size]
+[center][b]Мультисайтовость[/b][/center][color=#8b93b3]настройки хранятся отдельно для каждого сайта.[/color][/TH][/TR][TR][TH][center][IMG WIDTH=10 HEIGHT=20]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][/center][/TH][TH][center][IMG WIDTH=10 HEIGHT=20]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][/center][/TH][TH][center][IMG WIDTH=10 HEIGHT=20]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][/center][/TH][/TR][TR][TH][center][IMG WIDTH=72 HEIGHT=72]https://zahalski.dev/upload/awz.load.ai/x6hkfuchiv.png[/IMG][/center]
 
-[list]
-[*][b]Автоматическая замена скриптов[/b]: Модуль перехватывает HTML-контент страницы и заменяет все подключения к [b]api-maps.yandex.ru[/b] на единый URL, указанный в настройках.
-[*][b]Гибкая настройка[/b]: Возможность включать/отключать модуль на отдельных сайтах (для мультисайтовых решений).
-[*][b]Исключения по URL[/b]: Настройка страниц, на которых модуль не будет работать, с использованием регулярных выражений.
-[*][b]Исключения по GET-параметрам[/b]: Отключение модуля на страницах с определёнными GET-параметрами.
-[*][b]Автоматический поиск ключей[/b]: При наличии модулей [b]awz.ydelivery[/b], [b]awz.belpost[/b], [b]awz.europost[/b] или [b]fileman[/b], модуль пытается автоматически подставить API-ключи из их настроек.
-[*][b]Поддержка enterprise-версии[/b]: При наличии API-ключа для enterprise-версии, модуль автоматически переключается на [b]enterprise.api-maps.yandex.ru[/b].
-[/list]
+[center][b]Исключения[/b][/center][color=#8b93b3]отключение и включение по GET-параметрам и регулярным выражениям.[/color][/TH][TH][center][IMG WIDTH=10 HEIGHT=20]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][/center][/TH][TH][center][IMG WIDTH=72 HEIGHT=72]https://zahalski.dev/upload/awz.load.ai/ixjo6g3du3.png[/IMG][/center]
 
-[size=24pt][b]Принцип работы[/b][/size]
+[center][b]Права доступа[/b][/center][color=#8b93b3]отдельная вкладка прав по группам пользователей.[/color][/TH][/TR][/TABLE]
+[/center]
 
-Модуль подключается к событию [b]OnEndBufferContent[/b] ядра Bitrix. На этапе завершения формирования HTML-страницы он:
+[center][IMG WIDTH=800 HEIGHT=447]https://zahalski.dev/upload/awz.load.ai/mzw2glmmma.png[/IMG][/center]
 
-[list=1]
-[*]Проверяет, что запрос не из админки, не POST-запрос и не AJAX-запрос.
-[*]Получает настройки для текущего сайта (в мультисайтовых проектах).
-[*]Проверяет, не отключён ли модуль для текущего GET-параметра или URL (через регулярные выражения).
-[*]Ищет в HTML-коде все теги [code]<script>[/code] с подключением [b]api-maps.yandex.ru[/b].
-[*]Заменяет [b]первое[/b] найденное подключение на указанный в настройках URL (с добавлением [b]#awzfixymap[/b] для последующей очистки).
-[*]Удаляет все остальные подключения к Яндекс Картам.
-[*]Удаляет метку [b]#awzfixymap[/b] из итогового HTML.
-[/list]
+[center][size=18pt][b]От чего спасает модуль[/b][/size][/center]
+[center]
+[TABLE]
+[TR][TD][IMG WIDTH=135 HEIGHT=1]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][/TD][TD][IMG WIDTH=135 HEIGHT=1]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][/TD][/TR]
+[TR][TD][center][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/c24bfx8trj.png[/IMG][/center][/TD][TD][center][b]Дубли подключений библиотеки карт[/b][/center][/TD][/TR]
+[TR][TD][center][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/x16calqklk.png[/IMG][/center][/TD][TD][center][b]Конфликт API-ключей разных модулей[/b][/center][/TD][/TR]
+[TR][TD][center][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/oxp6qemnu7.png[/IMG][/center][/TD][TD][center][b]Конфликт версий API Яндекс карт[/b][/center][/TD][/TR]
+[TR][TD][center][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/2muna2rd13.png[/IMG][/center][/TD][TD][center][b]Ошибки и падение карт на сайте[/b][/center][/TD][/TR]
+[/TABLE]
+[/center]
 
-[size=24pt][b]Интеграция с Bitrix CMS[/b][/size]
 
-[list]
-[*][b]Установка[/b]: Модуль регистрируется в системе и подключает обработчик события [b]OnEndBufferContent[/b].
-[*][b]Настройки[/b]: Доступны через раздел "Настройки модулей" → "Настройки модуля AWZ: Решение конфликтов Яндекс карт".
-[*][b]Мультисайтовость[/b]: Настройки хранятся отдельно для каждого сайта ([b]SITE_ID[/b]), что позволяет гибко управлять поведением модуля в мультисайтовых проектах.
-[/list]
+[center][size=18pt][b]Основные возможности модуля[/b][/size]
+[IMG WIDTH=225 HEIGHT=9]https://zahalski.dev/upload/awz.load.ai/lv1iyow5dj.png[/IMG][/center]
 
-[size=24pt][b]Настройки и конфигурация[/b][/size]
+[center][size=13pt][b]1. Автозамена подключений[/b][/size][/center]
+[center]
+[TABLE]
+[TR][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/uy3rr3dpd5.png[/IMG][/TD][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG]Перехват страницы на событии OnEndBufferContent[/TD][/TR]
+[TR][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/uy3rr3dpd5.png[/IMG][/TD][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG]Первое подключение заменяется на заданный URL[/TD][/TR]
+[TR][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/uy3rr3dpd5.png[/IMG][/TD][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG]Остальные подключения к картам удаляются[/TD][/TR]
+[/TABLE]
+[/center]
 
-[size=22pt][b]Основные настройки[/b][/size]
+[center][IMG WIDTH=800 HEIGHT=447]https://zahalski.dev/upload/awz.load.ai/7vtouc4j4w.png[/IMG][/center]
 
-[list]
-[*][b]Включить модуль[/b] ([b]ACTIVE[/b])
-   - Флажок для включения/отключения модуля на текущем сайте.
-   - Значение по умолчанию: [b]N[/b] (выключено).
+[center][size=13pt][b]2. Исключения и включения[/b][/size][/center]
+[center]
+[TABLE]
+[TR][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/vaop2xiism.png[/IMG][/TD][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG]Отключение на страницах с заданными GET-параметрами[/TD][/TR]
+[TR][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/vaop2xiism.png[/IMG][/TD][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG]Отключение по регулярным выражениям URL - приоритетнее включений[/TD][/TR]
+[TR][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/vaop2xiism.png[/IMG][/TD][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG]Включение только на страницах по регулярным выражениям[/TD][/TR]
+[/TABLE]
+[/center]
 
-[*][b]URL путь к библиотеке ymaps[/b] ([b]URL[/b])
-   - Полный URL для подключения библиотеки [b]ymaps[/b].
-   - Значение по умолчанию: автоматически формируется на основе ключей из других модулей.
+[center][IMG WIDTH=800 HEIGHT=447]https://zahalski.dev/upload/awz.load.ai/wrffwy2aje.png[/IMG][/center]
 
-[*][b]Отключить модуль на страницах с get параметрами[/b] ([b]DSBL_GET[/b])
-   - Список GET-параметров (через запятую), при наличии которых модуль не будет работать.
-   - Пример: [b]preview,edit[/b] — модуль отключится на страницах [url=/catalog/?preview=1]/catalog/?preview=1[/url] или [url=/product/?edit=true]/product/?edit=true[/url].
+[center][size=13pt][b]3. Автоподстановка ключей[/b][/size][/center]
+[center]
+[TABLE]
+[TR][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/7ba9edp0d9.png[/IMG][/TD][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG]Ключи берутся из настроек awz.ydelivery, awz.belpost, awz.europost и fileman[/TD][/TR]
+[TR][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/7ba9edp0d9.png[/IMG][/TD][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG]Enterprise-ключ переключает на enterprise.api-maps.yandex.ru[/TD][/TR]
+[TR][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG][IMG WIDTH=44 HEIGHT=44]https://zahalski.dev/upload/awz.load.ai/7ba9edp0d9.png[/IMG][/TD][TD][IMG WIDTH=10 HEIGHT=10]https://zahalski.dev/upload/awz.load.ai/4zhdkguvu3.png[/IMG]Работает только на публичных страницах - админка, POST и AJAX пропускаются[/TD][/TR]
+[/TABLE]
+[/center]
 
-[*][b]Отключить модуль на страницах по регулярному выражению[/b] ([b]DSBL_REJ[/b])
-   - Список регулярных выражений (каждое с новой строки), при совпадении с текущим URL модуль не будет работать.
-   - Примеры:
-     - [b]/catalog/[/b] — точный путь (опубликуется на [url=/catalog/index.php]/catalog/index.php[/url]).
-     - [b]#\/catalog\/*#i[/b] — регулярное выражение (не опубликуется на [url=*/catalog/*]*/catalog/*[/url]).
-   - данные правила приоритетнее правил включения
+[center][IMG WIDTH=800 HEIGHT=447]https://zahalski.dev/upload/awz.load.ai/2jy2hzap2o.png[/IMG][/center]
 
-[*][b]Включить модуль на страницах по регулярному выражению[/b] ([b]ENBL_REJ[/b])
-   - Список регулярных выражений (каждое с новой строки).
-   - Если задано хотя бы одно выражение в [b]ENBL_REJ[/b], модуль сработает только на страницах, совпадающих с этими выражениями.
-[/list]
-
-[size=22pt][b]Права доступа[/b][/size]
-
-В отдельной вкладке настроек доступна настройка прав доступа для различных групп пользователей.
